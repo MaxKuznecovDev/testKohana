@@ -1,0 +1,58 @@
+body{
+    font-family: "Lato";
+}
+h1,h2,h3,h4{
+    font-family: "Raleway";
+
+}
+
+.wrapper_app_present, .wrapper_screenshots{
+    background-color: #34495e;
+    padding-top: 80px;
+    color: white;
+}
+.welcome_h1{
+    font-size: 70px;
+}
+p{
+    line-height: 28px;
+}
+ul{
+    font-size: 20px;
+    line-height: 50px;
+}
+.row-m-t{
+    margin-bottom : 30px
+}
+.wrapper_designed_excel,.wrapper_new{
+    background-color: #f2f2f2;
+    padding-top: 110px;
+}
+
+.options_container{
+    background-color: #f2f2f2;
+    border: 0px;
+}
+.border_bottom{
+    border-bottom: 1px solid gray;
+}
+.img_width{
+    max-width: 60%;
+}
+.container-p-b{
+    padding-bottom: 170px;
+}
+.wrapper_contact,.address_container{
+    background-color: #2f2f2f;
+    padding-top: 80px;
+    color: white;
+}
+.address_container{
+    border: 0px;
+    font-size: 20px;
+}
+.wrapper_footer{
+    background-color: #222222;
+    padding-top: 50px;
+    color: white;
+}
