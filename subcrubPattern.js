@@ -1,45 +1,52 @@
 class Shop{
-  
+  startSail(subscruber){
+    console.log("Hello "+ subscruber +"! Start sail New phone!" );
+  }
+  technicalSupport(subscruber){
+    console.log("Hello "+ subscruber +"!We help you!");
+  }
+
+}
+
+class EventChanel{
   subscrubers=[];
-  state = null;
-  
-  subscrube(event,notificationMethod){
-    let newSubscruber = [event,notificationMethod];
+  events=[];
+
+  subscrube(nameEvent,subscruber){
+    let newSubscruber = [nameEvent,subscruber];
     this.subscrubers.push(newSubscruber);
   }
+  addEvent(nameEvent,eventMethod){
+    let newEvent = [nameEvent,eventMethod];
+    this.events.push(newEvent);
+  }
   notifySubscrube(event){
-    this.subscrubers.forEach(function(subscruberArr){
-      if(subscruberArr[0] === event){
-        subscruberArr[1]();
+    let self = this;
+    this.events.forEach(function(eventsArr){
+      if(eventsArr[0] === event){
+        self.subscrubers.forEach(function(subscruberArr){
+          if(subscruberArr[0]=== event){
+            eventsArr[1](subscruberArr[1]);
+          }
+        });
       }
     });
   }
-  baseLogic(){
-    if(this.state === "phones came"){
-      this.notifySubscrube("get new phone");
-    }else if(this.state === "computers came"){
-      this.notifySubscrube("get new computer");
-    }
-  }
-
 }
 
 class User{
-  phoneMassage(){
-    console.log("New phone!");
-  }
-  computerMessage(){
-    console.log("New computer!");
-  }
-  
+  name = "Vasya";
 }
 
 let shop = new Shop();
+let eventChanel = new EventChanel();
 let user = new User();
-shop.subscrube("get new phone",user.phoneMassage);
-shop.subscrube("get new computer",user.computerMessage);
 
-shop.state = "phones came";
-shop.baseLogic();
-shop.state = "computers came";
-shop.baseLogic();
+
+eventChanel.addEvent("startSail",shop.startSail);
+eventChanel.addEvent("technicalSupport",shop.technicalSupport);
+eventChanel.subscrube("startSail",user.name);
+eventChanel.subscrube("technicalSupport",user.name);
+
+eventChanel.notifySubscrube("startSail");
+eventChanel.notifySubscrube("technicalSupport");

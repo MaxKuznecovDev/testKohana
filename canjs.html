@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>CanJS Test</title>
+</head>
+<body>
+<script
+        src="https://code.jquery.com/jquery-1.12.4.js"
+        integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+        crossorigin="anonymous"></script>
+<script src="http://canjs.com/release/latest/can.jquery.js"></script>
+<script src="http://canjs.com/release/latest/can.map.define.js"></script>
+<script src="http://canjs.com/release/latest/can.stache.js"></script>
+<script type='text/stache' id='app'>
+        <hello-world/>
+    </script>
+
+<script type="text/javascript">
+    can.Component.extend({
+        tag: 'hello-world',
+        template: can.stache("<h1>{{message}}</h1>"),
+        viewModel: {
+            message: "Hi there!"
+        }
+    });
+    $("body").append(can.view("app",{}));
+</script>
+
+<ul id="tabs" class="tabs ui-helper-clearfix">
+    <li><a href="#tab1">Option 1</a></li>
+    <li><a href="#tab2">Option 2</a></li>
+    <li><a href="#tab3">Option 3</a></li>
+</ul>
+
+<script>
+    let Tabs = can.Control.extend({
+        init: function( element, options ) {
+            console.dir(element);
+        },
+        'li click': function( li, event ) {
+            console.dir(li[0].innerText);
+        }
+    });
+    new Tabs('#tabs');
+</script>
+</body>
+</html>
